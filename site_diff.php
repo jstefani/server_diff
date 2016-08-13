@@ -22,7 +22,12 @@ if (!file_exists($out_dir)) { die("$out_dir does not exist\n"); }
 
 $domains = file($input_file);
 $domain_id = 0;
-  
+
+if ($compare) {
+  $diff_dir = $out_dir . "/diffs/";
+  mkdir($diff_dir, 0700);
+ }
+
 foreach($domains as $domain_name) {
 
   $domain_name = rtrim($domain_name, "\n");
@@ -42,6 +47,7 @@ foreach($domains as $domain_name) {
     $cached_contents = read_domain_copy($domain_id, $out_dir);
     if (($cached_contents != "") && ($cached_contents != $contents)) {
       echo "$domain_name ($domain_id) is different\n";
+      save_domain_copy($domain_id, $contents, $diff_dir);
     }
   }
   else {
