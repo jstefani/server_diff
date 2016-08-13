@@ -151,12 +151,12 @@ site_diff version $version
 Usage: site_diff [OPTION]... [URL]...
 
 Logging and input file:
-  -o,  --output-dir=DIR     output resuls to directory DIR
-  -i,  --input-file=FILE    read list of domains from FILE
+  -o,  --output-dir=DIR     output results to directory DIR
+  -i,  --input-file=FILE    read list of domains/urls from FILE
   -h,  --help               display usage information
   -v,  --verbose            display more verbose output
-  -r,  --ip=IP_ADDRESS      restrict scanning to the IP address IP_ADDRESS
-  -c,  --compare            scan and make comparision to saved output in --output-dir DIR
+  -r,  --ip=IP_ADDRESS      ignore URLS's that do not resolve to IP_ADDRESS
+  -c,  --compare            scan and make comparision to previous output in --output-dir DIR
 
 END_OF_TEXT;
 
