@@ -1,5 +1,4 @@
 site_diff
-August 12, 2016
 
 site_diff is a tool to check urls for differences after changes to server components. site_diff is not intended for ongoing monitoring of website changes 
 (there are better tools for this). Instead, it is meant to monitor for unintentional errors introduced by upgrades of server software. Project with large numbers
