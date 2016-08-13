@@ -30,5 +30,3 @@ Example:
 The -r or --ip option causes site_diff to skip any URL which does not resolve to the IP address given. This is useful for scanning large lists of URL's which
 contain entries that are not of interest.
 
-
-
