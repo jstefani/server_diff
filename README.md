@@ -1,26 +1,35 @@
-# site_diff
-# August 12, 2016
+site_diff
+August 12, 2016
 
-Tool to check urls for changes after server software updates
+site_diff is a tool to check urls for differences after changes to server components. site_diff is not intended for ongoing monitoring of website changes 
+(there are better tools for this). Instead, it is meant to monitor for unintentional errors introduced by upgrades of server software. Project with large numbers
+of software dependencies are vulnerable to unexpected issues from even minor software version and configuration changes.
 
 Usage:
 
-Place list of URL's to check into text file, one per line. Entries starting with http:// or https:// are used as is. Entries
-without http:// or https:// will have http:// added to them and a closing slash.
+Create a text file with a list of domain names or URLS, one per line. Entries starting with http:// or https:// are used as is. Entries
+without http:// or https:// will have http:// added to the front of the line and a closing slash added to the end of the line.
 
-site_diff grabs a copy of the html for each url and saves it. A second pass of all URL's is performed to remove any with
-dynamic content to prevent false positives when running the compare operation.
+site_diff retrieves a copy of the html for each url and saves it. A second pass of all URL's is performed to remove any URL's with
+dynamic content to prevent false positives when running the compare operation. No further action is currently taken on these URLs.
 
-After updates or other changes are made to your server environment you should run site_diff with the -c (compare) option to
+After updates or other changes are made to your server environment, run site_diff with the -c (compare) option to
 identify any URL's which have changed as a result of the server updates.
 
 Example:
 
-site_diff -i=urls.txt -o=output
+1. Retrieve current state of all URL's
 
-# make changes to server, etc.
+	site_diff -i=urls.txt -o=output
 
-site_diff -i=urls.txt -o=output -c
+2. Make changes to server - upgrade software, etc.
+
+3. Compare stored copy to current live version of all URL's
+
+	site_diff -i=urls.txt -o=output -c
+
+The -r or --ip option causes site_diff to skip any URL which does not resolve to the IP address given. This is useful for scanning large lists of URL's which
+contain entries that are not of interest.
 
 
 

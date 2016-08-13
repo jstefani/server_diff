@@ -17,6 +17,9 @@ if ($input_file == "") {
   exit();
  }
 
+if (!file_exists($input_file)) { die("$input_file does not exist\n"); }
+if (!file_exists($out_dir)) { die("$out_dir does not exist\n"); }
+
 $domains = file($input_file);
 $domain_id = 0;
   
