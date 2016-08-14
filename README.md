@@ -1,6 +1,6 @@
 site_diff
 
-site_diff is a tool to check urls for differences after changes to server components. site_diff is not intended for ongoing monitoring of website changes 
+site_diff is a tool to check large numbers of urls for differences after changes to server components. site_diff is not intended for ongoing monitoring of website changes 
 (there are better tools for this). Instead, it is meant to monitor for unintentional errors introduced by upgrades of server software. Project with large numbers
 of software dependencies are vulnerable to unexpected issues from even minor software version and configuration changes.
 
@@ -29,4 +29,12 @@ Example:
 
 The -r or --ip option causes site_diff to skip any URL which does not resolve to the IP address given. This is useful for scanning large lists of URL's which
 contain entries that are not of interest.
+
+Additional Notes:
+
+You may use the following to quickly retrieve all domains on a local webserver :
+
+  grep ServerName /etc/httpd/conf/httpd.conf | cut -d" " -f 2 > domains.txt
+
+A better approach is to capture a list of actual URL's in wide usage on your server or group of servers.
 
