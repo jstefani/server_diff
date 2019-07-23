@@ -21,9 +21,7 @@ Example:
 
 1. Retrieve current state of all URL's
 
-	grep ServerName /etc/httpd/conf/httpd.conf | cut -d" " -f 2 > urls.txt
-	mkdir output
-	site_diff -i=urls.txt -o=output
+```site_diff -i=urls.txt -o=output```
 
 2. Make changes to server - upgrade software, etc.
 
