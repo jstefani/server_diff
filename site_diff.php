@@ -141,7 +141,7 @@ function save_domain_copy($domain_id, $contents, $out_dir)
     $f = $out_dir . $domain_id . ".html";
     if (!$handle = fopen($f, "w")) {
       echo("Could not open $f for writing\n");
-      continue;
+      return false;
     }
   
     fwrite($handle, $contents);
