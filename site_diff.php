@@ -4,7 +4,7 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
-$version = ".5";
+$version = ".6";
 //$input_file = STDIN;
 $verbose = false;
 $compare = false;
@@ -104,7 +104,7 @@ function get_domain_contents($domain_name, $domain_id)
   $domain_name = create_url($domain_name);
   if ($verbose) { echo "Getting $domain_name ($domain_id) ...\n"; }
 
-  set_error_handler(create_function('$severity, $message, $file, $line','throw new ErrorException($message, $severity, $severity, $file, $line);'));
+  @set_error_handler(@create_function('$severity, $message, $file, $line','throw new ErrorException($message, $severity, $severity, $file, $line);'));
 
   $contents = "error";
   try {
