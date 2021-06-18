@@ -1,6 +1,12 @@
 #!/usr/bin/php -qc /dev/null
 <?php
 
+//
+// For docs see:
+//
+// https://github.com/jstefani/server_diff/blob/master/README.md
+//
+
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
@@ -155,8 +161,8 @@ function show_help()
   global $version;
 
 echo <<< END_OF_TEXT
-site_diff version $version
-Usage: site_diff [OPTION]... [URL]...
+server_diff version $version
+Usage: server_diff [OPTION]... [URL]...
 
 Logging and input file:
   -o,  --output-dir=DIR     output results to directory DIR
